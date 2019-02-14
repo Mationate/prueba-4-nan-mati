@@ -7,7 +7,7 @@
     <div class="navbar-nav ml-auto">
       
       <% if user_signed_in? %>  
-        <a class="nav-item nav-link" href="<%= destroy_user_session_path%>">Cerrar sesión</a>
+        <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class:'nav-item nav-link' %>
       <% else %>
         <a class="nav-item nav-link" href="<%= new_user_session_path%>">Iniciar sesión</a>
         <a class="nav-item nav-link" href="<%= new_user_registration_path%>">Registrarse</a>

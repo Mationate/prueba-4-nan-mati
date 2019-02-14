@@ -1,1 +1,14 @@
 <h1>lista de tareas !!</h1>
+
+<div class="row">
+  <% @todos.each do |todo| %>
+    <div class="card col-sm-4 text-center pt-3">
+      <%= image_tag todo.image,class:'card-img-top img-fluid' %>
+      <div class="card-body">
+        <h5 class="card-title"><%= todo.name %></h5>
+        <%= link_to 'Ver detalle', todo, class:'btn btn-primary btn-sm'%>
+        <%= link_to 'Hacer tarea', root_path, class:'btn btn-success btn-sm' %>
+      </div>
+    </div>
+  <% end %>
+</div>

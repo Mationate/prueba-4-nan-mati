@@ -7,7 +7,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= todo.name %></h5>
         <%= link_to 'Ver detalle', todo, class:'btn btn-primary btn-sm'%>
-        <%= link_to 'Hacer tarea', root_path, class:'btn btn-success btn-sm' %>
+        <%= link_to 'Hacer tarea', todo_tasks_path(todo), method: :post, class:'btn btn-success btn-sm' %>
       </div>
     </div>
   <% end %>

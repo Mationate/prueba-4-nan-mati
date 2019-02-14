@@ -2,6 +2,14 @@
 
 <p><strong>Imágen:</strong></p>
 <p><%= image_tag @todo.image %></p>
-<%= link_to 'Volver a las tareas', todos_path, class:'btn btn-primary' %>
 
 <h1>Personas que han completado esta tarea:</h1>
+
+<hr>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task.user.email %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Volver a las tareas', todos_path, class:'btn btn-primary' %>

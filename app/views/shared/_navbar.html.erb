@@ -1,12 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="<%= root_path%>">Navbar</a>
+  <a class="navbar-brand" href="<%= root_path%>">Tareas para el 18</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      
-      <% if user_signed_in? %>  
+      <% if user_signed_in? %>
+          <p class="nav-item nav-link">Tareas completadas: <%= current_user.tasks.count %> </p>
+          
         <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class:'nav-item nav-link' %>
       <% else %>
         <a class="nav-item nav-link" href="<%= new_user_session_path%>">Iniciar sesión</a>

@@ -1,0 +1,10 @@
+<h1>Tareas que has completado:</h1>
+<br>
+<div class="row">
+  <% @my_tasks.each do |task| %>
+    <div class="col-sm-2"><strong><%= task.todo.name %></strong></div>
+    <div class="col-sm-6"><%= image_tag task.todo.image %></div>
+    <div class="col-sm-4"><%= link_to 'No completé esta tarea', task_path(task), method: :delete, class:'btn btn-danger'%></div>
+  <% end %>
+</div>
+  

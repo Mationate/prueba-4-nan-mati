@@ -7,13 +7,16 @@
       <div class="card-body">
         <h5 class="card-title"><%= todo.name %></h5>
         <%= link_to 'Ver detalle', todo, class:'btn btn-primary btn-sm'%>
-
-          <%= link_to todo_tasks_path(todo), method: :post, class:'btn btn-success btn-sm' do %>
-            <i class="fas fa-check"></i>
+          
+          <% if user_signed_in? %>
+            <%= link_to todo_tasks_path(todo), method: :post, class:'btn btn-success btn-sm' do %>
+              <i class="fas fa-check"></i>
+            <% end %>
+            <%= link_to todo_uncompleted_path(todo), method: :delete, class:'btn btn-danger btn-sm' do %>
+              <i class="fas fa-times"></i>
+            <% end %>
           <% end %>
-          <%= link_to todo_uncompleted_path(todo), method: :delete, class:'btn btn-danger btn-sm' do %>
-            <i class="fas fa-times"></i>
-          <% end %>
+          
       </div>
     </div>
   <% end %>

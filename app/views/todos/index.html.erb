@@ -8,14 +8,15 @@
         <h5 class="card-title"><%= todo.name %></h5>
         <%= link_to 'Ver detalle', todo, class:'btn btn-primary btn-sm'%>
           
-          <% if user_signed_in? %>
-            <%= link_to todo_tasks_path(todo), method: :post, class:'btn btn-success btn-sm' do %>
-              <i class="fas fa-check"></i>
-            <% end %>
-            <%= link_to todo_uncompleted_path(todo), method: :delete, class:'btn btn-danger btn-sm' do %>
-              <i class="fas fa-times"></i>
-            <% end %>
-          <% end %>
+            <% if todo.users.include? current_user %>
+              <%= link_to todo_uncompleted_path(todo), method: :delete, class:'btn btn-danger btn-sm' do %>
+                <i class="fas fa-times"></i>
+              <% end %>
+            <% else %>
+              <%= link_to todo_tasks_path(todo), method: :post, class:'btn btn-success btn-sm' do %>
+                <i class="fas fa-check"></i>
+              <% end %>
+            <% end %>      
           
       </div>
     </div>
